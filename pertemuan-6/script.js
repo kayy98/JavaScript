@@ -55,7 +55,7 @@ console.log(penjumlahan1);
 console.log(penjumlahan2);
 
 
-//*6
+//*6    
 
 
 let kresek = 4;
