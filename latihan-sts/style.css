@@ -1,0 +1,27 @@
+#box-1{
+    border: 5px solid black ;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    
+}
+#box-2{
+    border: 5px solid black ;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    
+}
+#box-3{
+    border: 5px solid black ;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    
+}
+
+.success{
+    background-color: blue;
+    margin: 0;
+}
+
