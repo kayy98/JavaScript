@@ -51,4 +51,23 @@ let watermelon1='0';
 let bluberry1='';
 console.log(apple1||grap1||bluberry1||watermelon1);
 
-                
+
+for(let n=9;n>=5;n--){
+    if(n===7)continue;
+    console.log(n);
+    
+}
+for(let o=4;o<=8;o++){
+    if(o===6)break;
+    console.log(o);
+}
+
+for(let i=0;i<5;i++){
+    console.log(i);
+}
+for (let i = 0; i < 5; i++) {
+  if (i === 2) {
+    continue;
+  }
+  console.log(i);
+}

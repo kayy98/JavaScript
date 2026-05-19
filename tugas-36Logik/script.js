@@ -36,8 +36,15 @@ if (nilaiMtk >= 80 && nilaiIpa >= 80) {
 //jawaban NO.5
 let totalBelanja = 13000;
 let member = true;
+    
 if (totalBelanja >= 10000 || member) {
   console.log("anda mendapatkat diskon");
 } else {
   console.log("anda tidak mendapat diskon");
 }
+
+
+// for (let o=4;o<=8;0++){
+//     if(o===6)break;
+//     console.log(o);
+// }
