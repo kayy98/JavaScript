@@ -11,7 +11,6 @@ box2.addEventListener("click", () => {
 box3.addEventListener("click", () => {
   box3.classList.toggle("success3");
 });
-box5.addEventListener("click",()=>{
-    document.getElementById('bd').classList.toggle("success5");
-})
-
+box5.addEventListener("click", () => {
+  document.getElementById("bd").classList.toggle("success5");
+});

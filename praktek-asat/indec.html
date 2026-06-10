@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Umur</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vi;
+            height: 100vh;
+            background: linear-gradient(135deg, #a0c4ff, #00f5d4);
+        }
+
+        .card {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 340px;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        button {
+            background-color: #4ea8de;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            width: auto;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #3a86c8;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Cek Umur</h2>
+        <div class="input-group">
+            <input type="number" id="umurInput" placeholder="Masukkan umur">
+        </div>
+        <button id="cekBtn">Cek Sekarang</button>
+        <div class="result" id="hasilTeks"></div>
+    </div>
+
+    <script>
+        // 1. Fungsi utama untuk memproses umur yang menerima CALLBACK
+        function prosesCekUmur(umur, callback) {
+            // Validasi jika input kosong
+            if (umur === "") {
+                return "Masukkan umur terlebih dahulu!";
+            }
+            
+            // Mengubah string input menjadi angka
+            const angkaUmur = parseInt(umur);
+            
+            // Memanggil fungsi callback dengan melemparkan angkaUmur sebagai argumen
+            return callback(angkaUmur);
+        }
+        
+        // 2. Fungsi Callback sesuai ketentuan logika teks output
+        function tentukanKategori(umur) {
+            if (umur < 30) {
+                return "Masih Muda 😎";
+            } else {
+                return "Lumayan Muda 🙂";
+            }
+        }
+
+        // 3. Dom Manipulation & Event Listener
+        const inputUmur = document.getElementById('umurInput');
+        const tombolCek = document.getElementById('cekBtn');
+        const textHasil = document.getElementById('hasilTeks');
+
+        tombolCek.addEventListener('click', function() {
+            const nilaiInput = inputUmur.value;
+            
+            // Eksekusi fungsi utama dan passing 'tentukanKategori' sebagai CALLBACK
+            const hasilTeks = prosesCekUmur(nilaiInput, tentukanKategori);
+            
+            // Tampilkan hasil ke layar
+            textHasil.textContent = hasilTeks;
+        });
+    </script>
+
+</body>
+</html>

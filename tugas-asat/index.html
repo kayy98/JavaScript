@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback</title>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Cek Umur</h2>
+      >
+      <div class="input-gp">
+        <input type="nomor" id="umurinput" placeholder="memasukan umur" />
+      </div>
+      <button id="CekBtn">Cek Sekarang</button>
+      <div id="hasil"></div>
+    </div>
+    <script>
+      function cekUmur(Umur, nyawa) {
+        if (Umur === "") {
+          return "masukan umur terlebih dahulu";
+        }
+        const nominalangka=(umur);
+        return nyawa(nominalangka);
+      }
+      function kategori(umur){
+        if(umur<30){
+            return "Masih Muda 😎";
+        }else{
+            return "Lumayan Muda 🙂";
+        }
+      }
+      const inputanumur=document.getElementById('umurinput');
+      const btnCek=document.getElementById('CekBtn');
+      const hasil=document.getElementById('hasilnya');
+
+      btnCek.addEventListener('click',()=>{
+        const inputumur=inputanumur.value;
+
+        const hasi=cekUmur(inputanumur,kategori);
+
+        hasil.textContent=hasil;
+      })
+    </script>
+  </body>
+</html>

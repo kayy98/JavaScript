@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        height: 100vh;
+        background: linear-gradient(#667eea, #d862ef);
+      }
+
+      .card {
+        background: white;
+        padding: 30px 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 340px;
+      }
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #333;
+        font-weight: 700;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      button {
+        background-color: #4ea8de;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        width: auto;
+      }
+
+      button:hover {
+        background-color: #3a86c8;
+      }
+
+      .result {
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        min-height: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Cek Nilai</h2>
+      <div class="input-group">
+        <input type="number" id="InputNilai" placeholder="Masukkan Nilai" />
+      </div>
+      <button id="cekBtn">Cek Nilai</button>
+      <div class="result" id="hasilTeks"></div>
+    </div>
+
+    <script>
+      function prosesCeknilai(Nilai, callback) {
+        if (Nilai === "") {
+          return "Masukkan Nilai kamu";
+        }
+
+        const angkaNilai = parseInt(Nilai);
+
+        return callback(angkaNilai);
+      }
+
+      function tentukanKategori(Nilai) {
+        if (Nilai > 30) {
+          return "Selamat Anda Lulus 🎉";
+        } else {
+          return "Maaf Anda Tidak Lulus 😢";
+        }
+      }
+
+      const inputnilai = document.getElementById("InputNilai");
+      const Cekbutton = document.getElementById("cekBtn");
+      const textHasil = document.getElementById("hasilTeks");
+
+      Cekbutton.addEventListener("click", () => {
+        let nilaiInput = inputnilai.value;
+
+        let hasilTeks = prosesCeknilai(nilaiInput, tentukanKategori);
+
+        textHasil.textContent = hasilTeks;
+      });
+    </script>
+  </body>
+</html>
